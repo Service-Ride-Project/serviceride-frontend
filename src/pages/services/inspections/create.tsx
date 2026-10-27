@@ -1,0 +1,2 @@
+import FormPage from '../../../components/shared/FormPage'
+export default function Page() { return <FormPage title={'Catat pemeriksaan'} description={'Dokumentasikan kondisi kendaraan dan diagnosis awal.'} fields={[{"label": "Booking", "type": "text", "full": false}, {"label": "Diagnosis teknis", "type": "textarea", "full": true}, {"label": "Komponen rusak", "type": "textarea", "full": true}, {"label": "Spare part diperlukan", "type": "textarea", "full": true}, {"label": "Foto pemeriksaan", "type": "upload", "full": true}]} /> }

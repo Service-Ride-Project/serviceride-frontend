@@ -1,0 +1,2 @@
+import ListPage from '../../components/shared/ListPage'
+export default function Page() { return <ListPage title={'Keluhan & sengketa'} description={'Tinjau laporan, bukti, dan tindak lanjut yang relevan.'} columns={['Nomor laporan', 'Pelapor', 'Transaksi', 'Kategori', 'Tanggal', 'Status']} createPath={'/complaints/create'} createLabel={'Buat keluhan'} tabs={['Terbuka', 'Dalam peninjauan', 'Selesai']} detailPath={'/complaints/detail'} /> }

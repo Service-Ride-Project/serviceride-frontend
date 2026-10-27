@@ -1,0 +1,2 @@
+import FormPage from '../../components/shared/FormPage'
+export default function Page() { return <FormPage title={'Tambah promosi'} description={'Siapkan informasi promosi tingkat platform.'} fields={[{"label": "Nama promosi", "type": "text", "full": false}, {"label": "Deskripsi", "type": "textarea", "full": true}, {"label": "Tanggal mulai", "type": "date", "full": false}, {"label": "Tanggal selesai", "type": "date", "full": false}, {"label": "Materi visual", "type": "upload", "full": true}]} /> }

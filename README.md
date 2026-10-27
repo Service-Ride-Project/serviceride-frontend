@@ -1,78 +1,31 @@
-# React + TypeScript + Vite
+# Service Ride Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Pratinjau antarmuka dashboard Service Ride berbasis React, TypeScript, Vite, Ant Design, dan React Router. Proyek ini hanya menampilkan UI dan navigasi. Tidak ada autentikasi, API, penyimpanan data, atau proses transaksi.
 
-Currently, two official plugins are available:
+## Menjalankan
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Pilih salah satu dari tujuh role melalui pemilih di header atau halaman `/login`. Role hanya mengubah tampilan pratinjau dan disimpan di `localStorage`; ini bukan sistem hak akses.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Struktur
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- `src/config/navigation.ts`: daftar modul dan menu per role.
+- `src/routes/index.tsx`: route dashboard bertingkat dengan pemuatan halaman sesuai route.
+- `src/layout/dashboard.tsx`: layout Ant Design dengan sidebar responsif.
+- `src/components/shared/`: pola tampilan daftar, detail, dan formulir.
+- `src/pages/`: halaman dipisahkan per modul dan subhalaman.
 
+Tabel dan metrik sengaja kosong sampai sumber data tersedia. Form dan dialog hanya memperlihatkan field serta alur visual.
+
+## Pemeriksaan
+
+```bash
+npm run lint
+npm run build
 ```
+
+Rujukan kebutuhan tersedia pada folder `dokumen` proyek Service Ride, terutama `SKPL.typ` dan `README.md`. Berkas `Analisis_Kebutuhan_Service_Ride_v1.0.md` serta `Tentang Service Ride.md` yang disebut dalam permintaan tidak ada di folder tersebut saat implementasi.

@@ -1,0 +1,2 @@
+import FormPage from '../../components/shared/FormPage'
+export default function Page() { return <FormPage title={'Catat pelanggan offline'} description={'Buat data pelanggan untuk antrean full offline.'} fields={[{"label": "Nama pelanggan", "type": "text", "full": false}, {"label": "Email", "type": "email", "full": false}, {"label": "Nomor telepon", "type": "text", "full": false}, {"label": "Alamat", "type": "textarea", "full": true}]} /> }
