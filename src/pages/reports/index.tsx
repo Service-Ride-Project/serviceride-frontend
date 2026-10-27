@@ -1,3 +1,67 @@
-import { Card, Col, DatePicker, Empty, Row, Select, Statistic, Table, Typography } from 'antd'
-import PageHeader from '../../components/shared/PageHeader'
-export default function Reports(){return <div className="page-stack"><PageHeader title="Laporan bengkel" description="Lihat pendapatan dan operasi berdasarkan periode serta cabang yang dipilih." /><Card className="surface-card"><Row gutter={[12,12]}><Col xs={24} md={12}><Typography.Text type="secondary">Periode</Typography.Text><DatePicker.RangePicker style={{width:'100%',marginTop:7}} /></Col><Col xs={24} md={12}><Typography.Text type="secondary">Bengkel atau cabang</Typography.Text><Select style={{width:'100%',marginTop:7}} placeholder="Pilih bengkel" options={[]} /></Col></Row></Card><Row gutter={[16,16]}>{['Pendapatan online','Pendapatan tunai','Total transaksi'].map(label=><Col xs={24} md={8} key={label}><Card className="surface-card"><Statistic title={label} value="—" /></Card></Col>)}</Row><Card className="surface-card" title="Rincian periode"><Table rowKey="id" dataSource={[]} columns={['Tanggal','Bengkel','Jenis transaksi','Kanal','Nominal'].map(label=>({title:label,dataIndex:label,key:label}))} locale={{emptyText:<Empty description="Belum ada data laporan" />}} pagination={false} scroll={{x:700}} /></Card></div>}
+import {
+  Card,
+  Col,
+  DatePicker,
+  Empty,
+  Row,
+  Select,
+  Statistic,
+  Table,
+  Typography,
+} from "antd";
+import PageHeader from "@/components/shared/PageHeader";
+export default function Reports() {
+  return (
+    <div className="page-stack">
+      <PageHeader
+        title="Laporan bengkel"
+        description="Lihat pendapatan dan operasi berdasarkan periode serta cabang yang dipilih."
+      />
+      <Card className="surface-card">
+        <Row gutter={[12, 12]}>
+          <Col xs={24} md={12}>
+            <Typography.Text type="secondary">Periode</Typography.Text>
+            <DatePicker.RangePicker style={{ width: "100%", marginTop: 7 }} />
+          </Col>
+          <Col xs={24} md={12}>
+            <Typography.Text type="secondary">
+              Bengkel atau cabang
+            </Typography.Text>
+            <Select
+              style={{ width: "100%", marginTop: 7 }}
+              placeholder="Pilih bengkel"
+              options={[]}
+            />
+          </Col>
+        </Row>
+      </Card>
+      <Row gutter={[16, 16]}>
+        {["Pendapatan online", "Pendapatan tunai", "Total transaksi"].map(
+          (label) => (
+            <Col xs={24} md={8} key={label}>
+              <Card className="surface-card">
+                <Statistic title={label} value="—" />
+              </Card>
+            </Col>
+          ),
+        )}
+      </Row>
+      <Card className="surface-card" title="Rincian periode">
+        <Table
+          rowKey="id"
+          dataSource={[]}
+          columns={[
+            "Tanggal",
+            "Bengkel",
+            "Jenis transaksi",
+            "Kanal",
+            "Nominal",
+          ].map((label) => ({ title: label, dataIndex: label, key: label }))}
+          locale={{ emptyText: <Empty description="Belum ada data laporan" /> }}
+          pagination={false}
+          scroll={{ x: 700 }}
+        />
+      </Card>
+    </div>
+  );
+}

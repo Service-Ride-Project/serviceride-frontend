@@ -1,8 +1,96 @@
-import { Alert, Button, Form, Input, Modal, Select, Space, Typography, Upload } from 'antd'
-import { UploadOutlined } from '@ant-design/icons'
-import { useState } from 'react'
-import { useOutletContext } from 'react-router'
-import type { Role } from '../../../config/navigation'
-import DetailPage from '../../../components/shared/DetailPage'
-export default function EstimateDetail(){const [open,setOpen]=useState(false);const {role}=useOutletContext<{role:Role}>();return <><DetailPage title="Detail estimasi" description="Dokumen estimasi sebelum persetujuan pelanggan." fields={['Nomor estimasi','Pekerjaan','Komponen','Biaya','Perkiraan selesai','Status ACC']} tabs={['Rincian','Bukti foto','Persetujuan']} extra={<Space wrap>{['customer','operations'].includes(role)&&<Button type="primary" onClick={()=>setOpen(true)}>Lihat formulir ACC</Button>}{['mechanic','operations'].includes(role)&&<Button href="/services/estimates/create">Sunting estimasi</Button>}</Space>} />
- <Modal title="Persetujuan estimasi" open={open} onCancel={()=>setOpen(false)} footer={<Button onClick={()=>setOpen(false)}>Tutup</Button>}><Alert type="info" showIcon title="Rincian biaya dan komponen dikunci setelah ACC tercatat pada sistem." style={{marginBottom:18}} /><Form layout="vertical"><Form.Item label="Keputusan"><Select placeholder="Pilih keputusan" options={[{value:'approve',label:'Setuju'},{value:'reject',label:'Tolak'}]} /></Form.Item><Form.Item label="Kanal persetujuan"><Select placeholder="Pilih kanal" options={[{value:'app',label:'Aplikasi'},{value:'whatsapp',label:'WhatsApp'},{value:'phone',label:'Telepon'}]} /></Form.Item><Form.Item label="Bukti persetujuan"><Upload beforeUpload={()=>false} maxCount={1}><Button icon={<UploadOutlined />}>Pilih bukti</Button></Upload></Form.Item><Form.Item label="Catatan"><Input.TextArea rows={2} /></Form.Item></Form><Typography.Text type="secondary">Formulir ini tidak mengirim atau menyimpan keputusan.</Typography.Text></Modal></>}
+import {
+  Alert,
+  Button,
+  Form,
+  Input,
+  Modal,
+  Select,
+  Space,
+  Typography,
+  Upload,
+} from "antd";
+import { UploadOutlined } from "@ant-design/icons";
+import { useState } from "react";
+import { useOutletContext } from "react-router";
+import type { Role } from "@/../config/navigation";
+import DetailPage from "@/../components/shared/DetailPage";
+export default function EstimateDetail() {
+  const [open, setOpen] = useState(false);
+  const { role } = useOutletContext<{ role: Role }>();
+  return (
+    <>
+      <DetailPage
+        title="Detail estimasi"
+        description="Dokumen estimasi sebelum persetujuan pelanggan."
+        fields={[
+          "Nomor estimasi",
+          "Pekerjaan",
+          "Komponen",
+          "Biaya",
+          "Perkiraan selesai",
+          "Status ACC",
+        ]}
+        tabs={["Rincian", "Bukti foto", "Persetujuan"]}
+        extra={
+          <Space wrap>
+            {["customer", "operations"].includes(role) && (
+              <Button type="primary" onClick={() => setOpen(true)}>
+                Lihat formulir ACC
+              </Button>
+            )}
+            {["mechanic", "operations"].includes(role) && (
+              <Button href="/services/estimates/create">
+                Sunting estimasi
+              </Button>
+            )}
+          </Space>
+        }
+      />
+      <Modal
+        title="Persetujuan estimasi"
+        open={open}
+        onCancel={() => setOpen(false)}
+        footer={<Button onClick={() => setOpen(false)}>Tutup</Button>}
+      >
+        <Alert
+          type="info"
+          showIcon
+          title="Rincian biaya dan komponen dikunci setelah ACC tercatat pada sistem."
+          style={{ marginBottom: 18 }}
+        />
+        <Form layout="vertical">
+          <Form.Item label="Keputusan">
+            <Select
+              placeholder="Pilih keputusan"
+              options={[
+                { value: "approve", label: "Setuju" },
+                { value: "reject", label: "Tolak" },
+              ]}
+            />
+          </Form.Item>
+          <Form.Item label="Kanal persetujuan">
+            <Select
+              placeholder="Pilih kanal"
+              options={[
+                { value: "app", label: "Aplikasi" },
+                { value: "whatsapp", label: "WhatsApp" },
+                { value: "phone", label: "Telepon" },
+              ]}
+            />
+          </Form.Item>
+          <Form.Item label="Bukti persetujuan">
+            <Upload beforeUpload={() => false} maxCount={1}>
+              <Button icon={<UploadOutlined />}>Pilih bukti</Button>
+            </Upload>
+          </Form.Item>
+          <Form.Item label="Catatan">
+            <Input.TextArea rows={2} />
+          </Form.Item>
+        </Form>
+        <Typography.Text type="secondary">
+          Formulir ini tidak mengirim atau menyimpan keputusan.
+        </Typography.Text>
+      </Modal>
+    </>
+  );
+}

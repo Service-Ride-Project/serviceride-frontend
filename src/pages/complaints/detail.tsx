@@ -1,4 +1,50 @@
-import { Alert, Button, Form, Input, Modal, Select, Typography } from 'antd'
-import { useState } from 'react'
-import DetailPage from '../../components/shared/DetailPage'
-export default function ComplaintDetail(){const [open,setOpen]=useState(false);return <><DetailPage title="Detail keluhan" description="Bukti dan tindak lanjut kasus." fields={['Nomor laporan','Pelapor','Transaksi','Status']} tabs={['Uraian','Bukti','Tindak lanjut','Jejak tindakan']} extra={<Button onClick={()=>setOpen(true)}>Tinjau tindak lanjut</Button>} /><Modal title="Tindak lanjut keluhan" open={open} onCancel={()=>setOpen(false)} footer={<Button onClick={()=>setOpen(false)}>Tutup</Button>}><Alert showIcon type="info" title="Keputusan moderasi memerlukan bukti transaksi dan alasan yang tercatat." style={{marginBottom:18}} /><Form layout="vertical"><Form.Item label="Tindakan"><Select placeholder="Pilih tindakan" options={[{value:'review',label:'Dalam peninjauan'},{value:'resolve',label:'Selesaikan kasus'},{value:'escalate',label:'Eskalasi sengketa'}]} /></Form.Item><Form.Item label="Alasan"><Input.TextArea rows={3} /></Form.Item></Form><Typography.Text type="secondary">Tidak ada tindakan yang disimpan pada pratinjau ini.</Typography.Text></Modal></>}
+import { Alert, Button, Form, Input, Modal, Select, Typography } from "antd";
+import { useState } from "react";
+import DetailPage from "@/components/shared/DetailPage";
+export default function ComplaintDetail() {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <DetailPage
+        title="Detail keluhan"
+        description="Bukti dan tindak lanjut kasus."
+        fields={["Nomor laporan", "Pelapor", "Transaksi", "Status"]}
+        tabs={["Uraian", "Bukti", "Tindak lanjut", "Jejak tindakan"]}
+        extra={
+          <Button onClick={() => setOpen(true)}>Tinjau tindak lanjut</Button>
+        }
+      />
+      <Modal
+        title="Tindak lanjut keluhan"
+        open={open}
+        onCancel={() => setOpen(false)}
+        footer={<Button onClick={() => setOpen(false)}>Tutup</Button>}
+      >
+        <Alert
+          showIcon
+          type="info"
+          title="Keputusan moderasi memerlukan bukti transaksi dan alasan yang tercatat."
+          style={{ marginBottom: 18 }}
+        />
+        <Form layout="vertical">
+          <Form.Item label="Tindakan">
+            <Select
+              placeholder="Pilih tindakan"
+              options={[
+                { value: "review", label: "Dalam peninjauan" },
+                { value: "resolve", label: "Selesaikan kasus" },
+                { value: "escalate", label: "Eskalasi sengketa" },
+              ]}
+            />
+          </Form.Item>
+          <Form.Item label="Alasan">
+            <Input.TextArea rows={3} />
+          </Form.Item>
+        </Form>
+        <Typography.Text type="secondary">
+          Tidak ada tindakan yang disimpan pada pratinjau ini.
+        </Typography.Text>
+      </Modal>
+    </>
+  );
+}

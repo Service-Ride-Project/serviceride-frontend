@@ -1,2 +1,17 @@
-import FormPage from '../../components/shared/FormPage'
-export default function Page() { return <FormPage title={'Antrean full offline'} description={'Catat kunjungan langsung dan kendaraan pelanggan.'} fields={[{"label": "Nama pelanggan", "type": "text", "full": false}, {"label": "Nomor telepon", "type": "text", "full": false}, {"label": "Kendaraan", "type": "text", "full": false}, {"label": "Nomor polisi", "type": "text", "full": false}, {"label": "Keluhan", "type": "textarea", "full": true}, {"label": "Mekanik", "type": "text", "full": false}]} /> }
+import FormPage from "@/components/shared/FormPage";
+export default function Page() {
+  return (
+    <FormPage
+      title={"Antrean full offline"}
+      description={"Catat kunjungan langsung dan kendaraan pelanggan."}
+      fields={[
+        { label: "Nama pelanggan", type: "text", full: false },
+        { label: "Nomor telepon", type: "text", full: false },
+        { label: "Kendaraan", type: "text", full: false },
+        { label: "Nomor polisi", type: "text", full: false },
+        { label: "Keluhan", type: "textarea", full: true },
+        { label: "Mekanik", type: "text", full: false },
+      ]}
+    />
+  );
+}

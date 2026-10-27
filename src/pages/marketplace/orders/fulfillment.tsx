@@ -1,2 +1,16 @@
-import FormPage from '../../../components/shared/FormPage'
-export default function Fulfillment(){return <FormPage title="Pemenuhan pesanan" description="Siapkan paket dan catat data ekspedisi secara manual." fields={[{label:'Nomor pesanan'},{label:'Ekspedisi'},{label:'Nomor resi'},{label:'Catatan pengiriman',type:'textarea',full:true}]} note="Status pengiriman akan diperbarui setelah layanan data tersedia." />}
+import FormPage from "@/../components/shared/FormPage";
+export default function Fulfillment() {
+  return (
+    <FormPage
+      title="Pemenuhan pesanan"
+      description="Siapkan paket dan catat data ekspedisi secara manual."
+      fields={[
+        { label: "Nomor pesanan" },
+        { label: "Ekspedisi" },
+        { label: "Nomor resi" },
+        { label: "Catatan pengiriman", type: "textarea", full: true },
+      ]}
+      note="Status pengiriman akan diperbarui setelah layanan data tersedia."
+    />
+  );
+}

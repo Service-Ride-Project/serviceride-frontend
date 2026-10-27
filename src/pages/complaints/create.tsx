@@ -1,2 +1,20 @@
-import FormPage from '../../components/shared/FormPage'
-export default function Page() { return <FormPage title={'Buat keluhan'} description={'Sertakan transaksi terkait dan bukti pendukung.'} fields={[{"label": "Jenis transaksi", "type": "select", "options": ["Servis", "Marketplace"]}, {"label": "Referensi transaksi", "type": "text", "full": false}, {"label": "Kategori", "type": "text", "full": false}, {"label": "Uraian keluhan", "type": "textarea", "full": true}, {"label": "Bukti pendukung", "type": "upload", "full": true}]} /> }
+import FormPage from "@/components/shared/FormPage";
+export default function Page() {
+  return (
+    <FormPage
+      title={"Buat keluhan"}
+      description={"Sertakan transaksi terkait dan bukti pendukung."}
+      fields={[
+        {
+          label: "Jenis transaksi",
+          type: "select",
+          options: ["Servis", "Marketplace"],
+        },
+        { label: "Referensi transaksi", type: "text", full: false },
+        { label: "Kategori", type: "text", full: false },
+        { label: "Uraian keluhan", type: "textarea", full: true },
+        { label: "Bukti pendukung", type: "upload", full: true },
+      ]}
+    />
+  );
+}

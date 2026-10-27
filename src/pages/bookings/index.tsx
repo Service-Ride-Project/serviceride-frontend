@@ -1,2 +1,21 @@
-import ListPage from '../../components/shared/ListPage'
-export default function Page() { return <ListPage title={'Booking & antrean'} description={'Tinjau permintaan, jadwal, dan antrean servis.'} columns={['Kode booking', 'Pelanggan', 'Bengkel', 'Jadwal', 'Jenis', 'Status']} createPath={'/bookings/create'} createLabel={'Buat booking'} tabs={['Semua', 'Menunggu', 'Dikonfirmasi', 'Dibatalkan']} detailPath={'/bookings/detail'} /> }
+import ListPage from "@/components/shared/ListPage";
+export default function Page() {
+  return (
+    <ListPage
+      title={"Booking & antrean"}
+      description={"Tinjau permintaan, jadwal, dan antrean servis."}
+      columns={[
+        "Kode booking",
+        "Pelanggan",
+        "Bengkel",
+        "Jadwal",
+        "Jenis",
+        "Status",
+      ]}
+      createPath={"/bookings/create"}
+      createLabel={"Buat booking"}
+      tabs={["Semua", "Menunggu", "Dikonfirmasi", "Dibatalkan"]}
+      detailPath={"/bookings/detail"}
+    />
+  );
+}

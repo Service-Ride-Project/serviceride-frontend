@@ -1,2 +1,17 @@
-import FormPage from '../../components/shared/FormPage'
-export default function Assignment(){return <FormPage title="Penugasan mekanik" description="Tentukan mekanik dan jadwal untuk booking yang telah dikonfirmasi." fields={[{label:'Kode booking'},{label:'Mekanik',type:'select',options:[]},{label:'Tanggal pengerjaan',type:'date'},{label:'Nomor antrean'},{label:'Catatan penugasan',type:'textarea',full:true}]} note="Pilihan mekanik akan tersedia setelah data cabang terhubung." />}
+import FormPage from "@/components/shared/FormPage";
+export default function Assignment() {
+  return (
+    <FormPage
+      title="Penugasan mekanik"
+      description="Tentukan mekanik dan jadwal untuk booking yang telah dikonfirmasi."
+      fields={[
+        { label: "Kode booking" },
+        { label: "Mekanik", type: "select", options: [] },
+        { label: "Tanggal pengerjaan", type: "date" },
+        { label: "Nomor antrean" },
+        { label: "Catatan penugasan", type: "textarea", full: true },
+      ]}
+      note="Pilihan mekanik akan tersedia setelah data cabang terhubung."
+    />
+  );
+}

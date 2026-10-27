@@ -1,2 +1,18 @@
-import FormPage from '../../components/shared/FormPage'
-export default function CashPayment(){return <FormPage title="Catat pembayaran tunai" description="Pencatatan tunai hanya tersedia pada antarmuka mitra." fields={[{label:'Referensi booking'},{label:'Nama pelanggan'},{label:'Nominal diterima',type:'number'},{label:'Tanggal pembayaran',type:'date'},{label:'Bukti pembayaran',type:'upload',full:true},{label:'Catatan',type:'textarea',full:true}]} note="Pembayaran belum dapat dicatat tanpa transaksi yang terhubung." />}
+import FormPage from "@/components/shared/FormPage";
+export default function CashPayment() {
+  return (
+    <FormPage
+      title="Catat pembayaran tunai"
+      description="Pencatatan tunai hanya tersedia pada antarmuka mitra."
+      fields={[
+        { label: "Referensi booking" },
+        { label: "Nama pelanggan" },
+        { label: "Nominal diterima", type: "number" },
+        { label: "Tanggal pembayaran", type: "date" },
+        { label: "Bukti pembayaran", type: "upload", full: true },
+        { label: "Catatan", type: "textarea", full: true },
+      ]}
+      note="Pembayaran belum dapat dicatat tanpa transaksi yang terhubung."
+    />
+  );
+}
