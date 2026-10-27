@@ -17,8 +17,7 @@ export default function Sidebar({ role, onNavigate }: { role: Role; onNavigate?:
   const groups = [...new Set(items.map(item => item.group))]
   const menuItems: MenuProps['items'] = groups.map(group => ({ type: 'group', label: group, children: items.filter(item => item.group === group).map(item => ({ key: item.path, label: item.label, icon: navigationIcons[item.path] ?? <HomeOutlined /> })) }))
   const selected = items.filter(item => item.path === '/' ? location.pathname === '/' : location.pathname === item.path || location.pathname.startsWith(item.path + '/')).sort((a,b) => b.path.length-a.path.length)[0]?.path ?? '/'
-  return <div className="sidebar-inner"><div className="brand" onClick={() => navigate('/')} role="button" tabIndex={0} onKeyDown={event => { if(event.key === 'Enter') navigate('/') }}><div className="brand-mark"><CarOutlined /></div><div><strong>Service Ride</strong><span>RUANG KERJA</span></div></div>
+  return <div className="sidebar-inner"><div className="brand" onClick={() => navigate('/')} role="button" tabIndex={0} onKeyDown={event => { if(event.key === 'Enter') navigate('/') }}><img className="brand-logo" src="/Logo.avif" alt="Service Ride" /></div>
     <Menu mode="inline" items={menuItems} selectedKeys={[selected]} onClick={({key}) => {navigate(key); onNavigate?.()}} className="sidebar-menu" />
-    <div className="sidebar-footer">Antarmuka pratinjau<br /><strong>Service Ride</strong></div>
   </div>
 }
